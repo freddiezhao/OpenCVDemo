@@ -14,7 +14,7 @@
 		04E82CDC1FBBDDC80056E9C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04E82CDA1FBBDDC80056E9C5 /* LaunchScreen.storyboard */; };
 		04E82CEA1FBBEF4C0056E9C5 /* OpenCVWapper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04E82CE91FBBEF4C0056E9C5 /* OpenCVWapper.mm */; };
 		04E82CFA1FBDA4E50056E9C5 /* MMCropView.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E82CF71FBDA4E40056E9C5 /* MMCropView.m */; };
-		04E82CFE1FBDA57A0056E9C5 /* CropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04E82CFD1FBDA57A0056E9C5 /* CropViewController.m */; };
+		04E82CFE1FBDA57A0056E9C5 /* CropViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 04E82CFD1FBDA57A0056E9C5 /* CropViewController.mm */; };
 		04E82D001FBDA6AE0056E9C5 /* libstdc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 04E82CFF1FBDA6AE0056E9C5 /* libstdc++.tbd */; };
 		562C8B1433C4DCE8CFEFA067 /* Pods_OpenCVDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC6BB4AB9662EFD0DE4848FB /* Pods_OpenCVDemo.framework */; };
 /* End PBXBuildFile section */
@@ -33,7 +33,7 @@
 		04E82CF61FBDA4E30056E9C5 /* MMCropView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MMCropView.h; sourceTree = "<group>"; };
 		04E82CF71FBDA4E40056E9C5 /* MMCropView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MMCropView.m; sourceTree = "<group>"; };
 		04E82CFC1FBDA57A0056E9C5 /* CropViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CropViewController.h; sourceTree = "<group>"; };
-		04E82CFD1FBDA57A0056E9C5 /* CropViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CropViewController.m; sourceTree = "<group>"; };
+		04E82CFD1FBDA57A0056E9C5 /* CropViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = CropViewController.mm; sourceTree = "<group>"; };
 		04E82CFF1FBDA6AE0056E9C5 /* libstdc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.tbd"; path = "usr/lib/libstdc++.tbd"; sourceTree = SDKROOT; };
 		4CB8451BC2F5875A8F514B80 /* Pods-OpenCVDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCVDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OpenCVDemo/Pods-OpenCVDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		91F44369B3BB40E5AE670E70 /* Pods-OpenCVDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenCVDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenCVDemo/Pods-OpenCVDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -86,7 +86,7 @@
 				04E82CF61FBDA4E30056E9C5 /* MMCropView.h */,
 				04E82CF71FBDA4E40056E9C5 /* MMCropView.m */,
 				04E82CFC1FBDA57A0056E9C5 /* CropViewController.h */,
-				04E82CFD1FBDA57A0056E9C5 /* CropViewController.m */,
+				04E82CFD1FBDA57A0056E9C5 /* CropViewController.mm */,
 			);
 			path = OpenCVDemo;
 			sourceTree = "<group>";
@@ -240,7 +240,7 @@
 				04E82CD41FBBDDC80056E9C5 /* ViewController.swift in Sources */,
 				04E82CEA1FBBEF4C0056E9C5 /* OpenCVWapper.mm in Sources */,
 				04E82CD21FBBDDC80056E9C5 /* AppDelegate.swift in Sources */,
-				04E82CFE1FBDA57A0056E9C5 /* CropViewController.m in Sources */,
+				04E82CFE1FBDA57A0056E9C5 /* CropViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

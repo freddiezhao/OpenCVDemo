@@ -9,10 +9,15 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+@class MMCropView;
 @interface OpenCVWapper : NSObject
 
 + (UIImage *)transform:(UIImage *)originImage;
 
 + (UIImage *)wrapImg:(UIImage *)originImage;
+
++ (void)detectEdgesFor:(UIImageView *)sourceImageView cropView:(MMCropView *)cropView;
+
++ (UIImage *)imageCropedFromSourceImageView:(UIImageView *)sourceImageView cropView:(MMCropView *)cropView;
 
 @end
