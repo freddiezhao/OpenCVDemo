@@ -147,7 +147,7 @@ CGPoint CGLinesIntersectAtPoint(CGLine line1, CGLine line2)
        
         
         //COLOR
-        _pointA.backgroundColor=[UIColor grayColor];
+        _pointA.backgroundColor=[UIColor redColor];
          _pointB.backgroundColor=[UIColor grayColor];
          _pointC.backgroundColor=[UIColor grayColor];
          _pointD.backgroundColor=[UIColor grayColor];
@@ -168,10 +168,31 @@ CGPoint CGLinesIntersectAtPoint(CGLine line1, CGLine line2)
         [self setUserInteractionEnabled:YES];
         [self setContentMode:UIViewContentModeRedraw];
         [self setButtons];
-   
         
+        _pointA.userInteractionEnabled = YES;
+        [_pointA addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(singlePan:)]];
+        _pointB.userInteractionEnabled = YES;
+        [_pointB addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(singlePan:)]];
+        _pointC.userInteractionEnabled = YES;
+        [_pointC addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(singlePan:)]];
+        _pointD.userInteractionEnabled = YES;
+        [_pointD addGestureRecognizer:[[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(singlePan:)]];
     }
     return self;
+}
+
+- (void)singlePan:(UIPanGestureRecognizer *)gesture {
+    CGPoint posInStretch = [gesture locationInView:self];
+    if(gesture.state == UIGestureRecognizerStateBegan){
+        [self findPointAtLocation:posInStretch];
+    }
+    if(gesture.state == UIGestureRecognizerStateEnded){
+        self.activePoint.backgroundColor = [UIColor grayColor];
+        self.activePoint = nil;
+        [self checkangle:0];
+    }
+    [self moveActivePointToLocation:posInStretch];
+    
 }
 
 - (NSArray *)getPoints

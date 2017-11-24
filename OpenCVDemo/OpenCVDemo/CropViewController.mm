@@ -10,7 +10,7 @@
 #import "MMCropView.h"
 #import "OpenCVWapper.h"
 
-@interface CropViewController ()
+@interface CropViewController () <UIGestureRecognizerDelegate>
 
 @property (strong, nonatomic) UIImageView *sourceImageView;
 @property (strong, nonatomic) MMCropView *cropRect;
@@ -22,18 +22,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _sourceImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Smartisan"]];
-//    _sourceImageView.contentMode = UIViewContentModeScaleAspectFit;
-//    _sourceImageView.frame = self.view.bounds;
-    [self.view addSubview:_sourceImageView];
+    UIImage *image = [UIImage imageNamed:@"Smartisan"];
     
-    _cropRect= [[MMCropView alloc] initWithFrame:self.view.bounds];
-    [self.view addSubview:_cropRect];
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:scrollView];
+    
+    _sourceImageView = [[UIImageView alloc] initWithImage:image];
+    [scrollView addSubview:_sourceImageView];
+    
+//    CGRect frame = CGRect{CGPointZero, image.size};
+    scrollView.contentSize = image.size;
+    
+    _cropRect = [[MMCropView alloc] initWithFrame:_sourceImageView.bounds];
+    [scrollView addSubview:_cropRect];
     
     
-    UIPanGestureRecognizer *singlePan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(singlePan:)];
-    singlePan.maximumNumberOfTouches = 1;
-    [_cropRect addGestureRecognizer:singlePan];
+//    UIPanGestureRecognizer *singlePan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(singlePan:)];
+//    singlePan.maximumNumberOfTouches = 1;
+//    [_cropRect addGestureRecognizer:singlePan];
     
     UIButton *cropBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     cropBtn.frame = CGRectMake(120, CGRectGetMaxY(self.view.bounds)-80, (CGRectGetWidth(self.view.bounds)-240)*0.5, 40);
@@ -43,6 +49,7 @@
     [cropBtn addTarget:self action:@selector(onCropBtnClick) forControlEvents:UIControlEventTouchUpInside];
 }
 
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
@@ -51,10 +58,10 @@
 
 - (void)singlePan:(UIPanGestureRecognizer *)gesture {
     CGPoint posInStretch = [gesture locationInView:_cropRect];
-    if(gesture.state==UIGestureRecognizerStateBegan){
+    if(gesture.state == UIGestureRecognizerStateBegan){
         [_cropRect findPointAtLocation:posInStretch];
     }
-    if(gesture.state==UIGestureRecognizerStateEnded){
+    if(gesture.state == UIGestureRecognizerStateEnded){
         _cropRect.activePoint.backgroundColor = [UIColor grayColor];
         _cropRect.activePoint = nil;
         [_cropRect checkangle:0];
